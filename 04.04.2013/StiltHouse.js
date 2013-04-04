@@ -11,7 +11,7 @@ function triplet(x){
 };
 
 function trasrot(x){
-	var tras = T([0,1,2])([-0.03,0.03,-0.08]);
+	var tras = T([0,1,2])([0,0.03,-0.08]);
 	var rot = R([0,1])(PI/20);
 	return rot(tras(x)); 
 }
@@ -40,18 +40,15 @@ var paletto6 = T([1])([6.9])(paletto2);
 var paletto7 = T([1])([6.9])(paletto0);
 var paletto8 = T([1])([6.9])(paletto4);
 var staccionata2 = STRUCT([T([0,1,2])([6.5,13.4,4])(COLOR(rgb01(140,102,53))(CUBOID([7,0.08,0.08]))), paletto5, paletto6, paletto7, paletto8]);
-
 var paletto9 = T([1])([-2])(paletto8);
 var paletto10 = T([1])([-4])(paletto8);
 var staccionata3 = STRUCT([T([0,1,2])([13.5,6.5,4])(ROTATE([0,1])(PI/2)(COLOR(rgb01(140,102,53))(CUBOID([7,0.08,0.08])))),paletto9,paletto10]);
-
 var paletto13 = T([1])([1.9])(paletto3);
 var paletto11 = T([0])([2])(paletto13);
 var paletto12 = T([0])([-6.9])(paletto9);
 var staccionata4 = STRUCT([T([0,1,2])([6.6,8.4,4])(ROTATE([0,1])(PI/2)(COLOR(rgb01(140,102,53))(CUBOID([5,0.08,0.08])))),paletto11,paletto12, paletto13]);
 var staccionata5 = T([0,1,2])([4.5,8.4,4])(COLOR(rgb01(140,102,53))(CUBOID([2,0.08,0.08])));
 var staccionate = STRUCT([staccionata, staccionata2, staccionata3, staccionata4, staccionata5]);
-
 var base = STRUCT([staccionate, colonne, mare, pavimento, aggiunta]);
 
 var muroL1 = T([0,1,2])([9,9,3])(CUBOID([4,0.15,2.6]));
@@ -136,8 +133,11 @@ var scal35 = trasrot(scal34);
 var scal36 = trasrot(scal35);
 var scal37 = trasrot(scal36);
 
+var palo = T([0,1])([4.55,6.5])(COLOR([0,0,0])(CYL_SURFACE([0.15,3])([100,4])));
+DRAW(palo);
+
 var chioccia = STRUCT([scalino, scal1, scal2, scal3, scal4, scal5, scal6, scal7, scal8, scal9, scal10,
 	scal11, scal12, scal13, scal14, scal15, scal16, scal17, scal18, scal19, scal20, scal21, scal22, scal23,
 	scal24, scal25, scal26, scal27, scal28, scal29, scal30, scal31, scal32, scal33, scal34, scal35, scal36, scal37]);
-DRAW(T([0,1,2])([4.5,6.75,3])(R([0,1])(PI/2)(chioccia)));
+DRAW(T([0,1,2])([4.55,6.75,3])(R([0,1])(PI/2)(chioccia)));
 DRAW(model);
